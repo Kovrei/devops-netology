@@ -8,6 +8,8 @@
 - Если dockerhub недоступен создайте файл /etc/docker/daemon.json с содержимым: ```{"registry-mirrors": ["https://mirror.gcr.io", "https://daocloud.io", "https://c.163.com/", "https://registry.docker-cn.com"]}```
 - Зарегистрируйтесь и создайте публичный репозиторий  с именем "custom-nginx" на https://hub.docker.com (ТОЛЬКО ЕСЛИ У ВАС ЕСТЬ ДОСТУП);
 - скачайте образ nginx:1.21.1;
+  ```docker build . -t nginx:1.21.1```
+  https://github.com/Kovrei/devops-netology/blob/main/virt/homework-04/Dockerfile  
 - Создайте Dockerfile и реализуйте в нем замену дефолтной индекс-страницы(/usr/share/nginx/html/index.html), на файл index.html с содержимым:
 ```
 <html>
@@ -19,10 +21,18 @@ Hey, Netology
 </body>
 </html>
 ```
-- Соберите и отправьте созданный образ в свой dockerhub-репозитории c tag 1.0.0 (ТОЛЬКО ЕСЛИ ЕСТЬ ДОСТУП). 
+https://github.com/Kovrei/devops-netology/blob/main/virt/homework-04/index.html  
+- Соберите и отправьте созданный образ в свой dockerhub-репозитории c tag 1.0.0 (ТОЛЬКО ЕСЛИ ЕСТЬ ДОСТУП).
+```
+docker login --username rei169kov
+docker tag nginx:1.21.1 rei169kov/custom-nginx:1.0.0
+docker push rei169kov/custom-nginx:1.0.0
+``` 
 - Предоставьте ответ в виде ссылки на https://hub.docker.com/<username_repo>/custom-nginx/general .
 
 ## Решение 1
+
+https://hub.docker.com/r/rei169kov/custom-nginx/tags
 
 ## Задача 2
 1. Запустите ваш образ custom-nginx:1.0.0 командой docker run в соответвии с требованиями:
