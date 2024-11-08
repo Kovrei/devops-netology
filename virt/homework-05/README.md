@@ -12,7 +12,7 @@ See 'snap info docker' for additional versions.
 ```
 В случае наличия установленного в системе ```docker-compose``` - удалите его.  
 
-![alt text]()
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/virt/homework-05/img/5.JPG?raw=true)
 
 2. Убедитесь что у вас УСТАНОВЛЕН ```docker compose```(без тире) версии не менее v2.24.X, для это выполните команду ```docker compose version```  
 ###  **Своё решение к задачам оформите в вашем GitHub репозитории!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!**
