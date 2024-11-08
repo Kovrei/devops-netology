@@ -66,7 +66,7 @@ docker build -t python:3.9-slim -f Dockerfile.python .
 
 - ```db```. image=mysql:8. Контейнер должен работать в bridge-сети с названием ```backend``` и иметь фиксированный ipv4-адрес ```172.20.0.10```. Явно перезапуск сервиса в случае ошибок. Передайте необходимые ENV-переменные для создания: пароля root пользователя, создания базы данных, пользователя и пароля для web-приложения.Обязательно используйте уже существующий .env file для назначения секретных ENV-переменных!
 
-[compose.yml](https://github.com/Kovrei/shvirtd-example-python/blob/main/compose.yml)
+[compose.yml](https://github.com/Kovrei/shvirtd-example-python/blob/main/compose.yml)  
 [.env](https://github.com/Kovrei/shvirtd-example-python/blob/main/.env)
 
 2. Запустите проект локально с помощью docker compose , добейтесь его стабильной работы: команда ```curl -L http://127.0.0.1:8090``` должна возвращать в качестве ответа время и локальный IP-адрес. Если сервисы не стартуют воспользуйтесь командами: ```docker ps -a ``` и ```docker logs <container_name>``` . Если вместо IP-адреса вы получаете ```NULL``` --убедитесь, что вы шлете запрос на порт ```8090```, а не 5000.
