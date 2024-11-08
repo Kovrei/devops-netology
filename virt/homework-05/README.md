@@ -11,6 +11,9 @@ sudo apt  install docker-compose  # version 1.25.0-1
 See 'snap info docker' for additional versions.
 ```
 В случае наличия установленного в системе ```docker-compose``` - удалите его.  
+
+![alt text]()
+
 2. Убедитесь что у вас УСТАНОВЛЕН ```docker compose```(без тире) версии не менее v2.24.X, для это выполните команду ```docker compose version```  
 ###  **Своё решение к задачам оформите в вашем GitHub репозитории!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!**
 
@@ -19,16 +22,23 @@ See 'snap info docker' for additional versions.
 ## Задача 1
 1. Сделайте в своем github пространстве fork [репозитория](https://github.com/netology-code/shvirtd-example-python/blob/main/README.md).
    Примечание: В связи с доработкой кода python приложения. Если вы уверены что задание выполнено вами верно, а код python приложения работает с ошибкой то используйте вместо main.py файл old_main.py(просто измените CMD)
+
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/virt/homework-05/img/5.1.1.JPG)
+
 2. Создайте файл с именем ```Dockerfile.python``` для сборки данного проекта(для 3 задания изучите https://docs.docker.com/compose/compose-file/build/ ). Используйте базовый образ ```python:3.9-slim```. 
 Обязательно используйте конструкцию ```COPY . .``` в Dockerfile. Не забудьте исключить ненужные в имадже файлы с помощью dockerignore. Протестируйте корректность сборки.
 
-[Dockerfile.python]()  
-[.dockerignore]()  
-[.gitignore]()  
+[Dockerfile.python](https://github.com/Kovrei/shvirtd-example-python/blob/main/Dockerfile.python)  
+[.dockerignore](https://github.com/Kovrei/shvirtd-example-python/blob/main/.dockerignore)  
+[.gitignore](https://github.com/Kovrei/shvirtd-example-python/blob/main/.gitignore)  
 
 ```
 docker build -t python:3.9-slim -f Dockerfile.python .
 ```
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/virt/homework-05/img/5.1.2.JPG?raw=true)
+
+**Прошу уточнить "Протестируйте корректность сборки" каким образом. 
+Ведь сборка после run в статусе exited**  
 
 3. (Необязательная часть, *) Изучите инструкцию в проекте и запустите web-приложение без использования docker в venv. (Mysql БД можно запустить в docker run).
 4. (Необязательная часть, *) По образцу предоставленного python кода внесите в него исправление для управления названием используемой таблицы через ENV переменную.
@@ -44,6 +54,8 @@ docker build -t python:3.9-slim -f Dockerfile.python .
 4. Просканируйте образ на уязвимости.
 5. В качестве ответа приложите отчет сканирования.
 
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/virt/homework-05/img/5.2.JPG)
+
 ## Задача 3
 1. Изучите файл "proxy.yaml"
 2. Создайте в репозитории с проектом файл ```compose.yaml```. С помощью директивы "include" подключите к нему файл "proxy.yaml".
@@ -54,11 +66,22 @@ docker build -t python:3.9-slim -f Dockerfile.python .
 
 - ```db```. image=mysql:8. Контейнер должен работать в bridge-сети с названием ```backend``` и иметь фиксированный ipv4-адрес ```172.20.0.10```. Явно перезапуск сервиса в случае ошибок. Передайте необходимые ENV-переменные для создания: пароля root пользователя, создания базы данных, пользователя и пароля для web-приложения.Обязательно используйте уже существующий .env file для назначения секретных ENV-переменных!
 
+[compose.yml](https://github.com/Kovrei/shvirtd-example-python/blob/main/compose.yml)
+[.env](https://github.com/Kovrei/shvirtd-example-python/blob/main/.env)
+
 2. Запустите проект локально с помощью docker compose , добейтесь его стабильной работы: команда ```curl -L http://127.0.0.1:8090``` должна возвращать в качестве ответа время и локальный IP-адрес. Если сервисы не стартуют воспользуйтесь командами: ```docker ps -a ``` и ```docker logs <container_name>``` . Если вместо IP-адреса вы получаете ```NULL``` --убедитесь, что вы шлете запрос на порт ```8090```, а не 5000.
 
-5. Подключитесь к БД mysql с помощью команды ```docker exec -ti <имя_контейнера> mysql -uroot -p<пароль root-пользователя>```(обратите внимание что между ключем -u и логином root нет пробела. это важно!!! тоже самое с паролем) . Введите последовательно команды (не забываем в конце символ ; ): ```show databases; use <имя вашей базы данных(по-умолчанию example)>; show tables; SELECT * from requests LIMIT 10;```.
+```
+docker compose up -d
+```
+***Происходит ошибка со сборкой mysql. Кроме mysql отдельные образы успешно создавались. Mysql по этой [сборке mysql+php](https://habr.com/ru/articles/802671/) успешно запустилось**  
 
-6. Остановите проект. В качестве ответа приложите скриншот sql-запроса.
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/virt/homework-05/img/5.3.JPG)
+
+
+3. Подключитесь к БД mysql с помощью команды ```docker exec -ti <имя_контейнера> mysql -uroot -p<пароль root-пользователя>```(обратите внимание что между ключем -u и логином root нет пробела. это важно!!! тоже самое с паролем) . Введите последовательно команды (не забываем в конце символ ; ): ```show databases; use <имя вашей базы данных(по-умолчанию example)>; show tables; SELECT * from requests LIMIT 10;```.
+
+4. Остановите проект. В качестве ответа приложите скриншот sql-запроса.
 
 ## Задача 4
 1. Запустите в Yandex Cloud ВМ (вам хватит 2 Гб Ram).
