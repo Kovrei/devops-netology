@@ -115,11 +115,11 @@ docker compose up -d
 [terraform apply --auto-approve]([https://github.com/Kovrei/devops-netology/tree/main/virt/homework-05/vm)  
 [start scripts](https://github.com/Kovrei/devops-netology/blob/main/virt/homework-05/script/hw-05.md)
 
-[ssh -o StrictHostKeyChecking=no vm1@51.250.94.174 'bash -s' < git_clone.sh](https://github.com/Kovrei/devops-netology/blob/main/virt/homework-05/script/git_clone.sh)
-[ssh vm1@51.250.94.174 'bash -s' < docker_install.sh](https://github.com/Kovrei/devops-netology/blob/main/virt/homework-05/script/docker_install.sh)
-[scp secret.env vm1@51.250.94.174:/opt/backup/](https://github.com/Kovrei/devops-netology/blob/main/virt/homework-05/script/secret.env)
-[scp docker_mysqldump.sh vm1@51.250.94.174:/opt/backup/](https://github.com/Kovrei/devops-netology/blob/main/virt/homework-05/script/docker_mysqldump.sh)
-[ssh vm1@51.250.94.174 'bash -s' < docker_mysqldump.sh](https://github.com/Kovrei/devops-netology/blob/main/virt/homework-05/script/docker_mysqldump.sh)
+[ssh -o StrictHostKeyChecking=no vm1@51.250.94.174 'bash -s' < git_clone.sh](https://github.com/Kovrei/devops-netology/blob/main/virt/homework-05/script/git_clone.sh)  
+[ssh vm1@51.250.94.174 'bash -s' < docker_install.sh](https://github.com/Kovrei/devops-netology/blob/main/virt/homework-05/script/docker_install.sh)  
+[scp secret.env vm1@51.250.94.174:/opt/backup/](https://github.com/Kovrei/devops-netology/blob/main/virt/homework-05/script/secret.env)  
+[scp docker_mysqldump.sh vm1@51.250.94.174:/opt/backup/](https://github.com/Kovrei/devops-netology/blob/main/virt/homework-05/script/docker_mysqldump.sh)  
+[ssh vm1@51.250.94.174 'bash -s' < docker_mysqldump.sh](https://github.com/Kovrei/devops-netology/blob/main/virt/homework-05/script/docker_mysqldump.sh)  
 
 2. Протестируйте ручной запуск
 3. Настройте выполнение скрипта раз в 1 минуту через cron, crontab или systemctl timer. Придумайте способ не светить логин/пароль в git!!
