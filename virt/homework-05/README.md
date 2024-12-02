@@ -140,13 +140,13 @@ docker compose up -d
 
 ## Задача 6.1
 Добейтесь аналогичного результата, используя docker cp.  
-Предоставьте скриншоты  действий .
+Предоставьте скриншоты  действий .  
 ![alt text](https://github.com/Kovrei/devops-netology/blob/main/virt/homework-05/img/6.1.1.JPG?raw=true)  
 ![alt text](https://github.com/Kovrei/devops-netology/blob/main/virt/homework-05/img/6.1.2.JPG?raw=true)  
 
 ## Задача 6.2 (**)
 Предложите способ извлечь файл из контейнера, используя только команду docker build и любой Dockerfile.  
-Предоставьте скриншоты  действий .
+Предоставьте скриншоты  действий .  
 ![alt text](https://github.com/Kovrei/devops-netology/blob/main/virt/homework-05/img/6.2.JPG?raw=true)  
 [Dockerfile](https://github.com/Kovrei/devops-netology/blob/main/virt/homework-05/Dockerfile)  
 ## Задача 7 (***)
