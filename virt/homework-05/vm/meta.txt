@@ -1,0 +1,19 @@
+#cloud-config
+users:
+  - name: vm1
+    groups: sudo
+    shell: /bin/bash
+    sudo: 'ALL=(ALL) NOPASSWD:ALL'
+    ssh_authorized_keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJH5P18hx+SKpl9YqcBDJVC1gv/6yN74h3GaJ3r4HOoQ vm1@vm1
+
+timezone: Europe/Moscow
+package_update: true
+package_upgrade: true
+apt:
+  preserve_sources_list: true
+packages:
+  - docker.io
+runcmd:
+  - [ systemctl, docker-reload ]
+  - [ systemctl, enable, docker.service ]
