@@ -18,6 +18,7 @@
 - скриншот консоли, curl должен отобразить тот же внешний ip-адрес;
 - ответы на вопросы.
 
+![alt text]()
 
 ### Задание 2
 
@@ -25,6 +26,7 @@
 2. Объявите нужные переменные в файле variables.tf, обязательно указывайте тип переменной. Заполните их **default** прежними значениями из main.tf. 
 3. Проверьте terraform plan. Изменений быть не должно. 
 
+![alt text]()
 
 ### Задание 3
 
@@ -32,6 +34,7 @@
 2. Скопируйте блок ресурса и создайте с его помощью вторую ВМ в файле main.tf: **"netology-develop-platform-db"** ,  ```cores  = 2, memory = 2, core_fraction = 20```. Объявите её переменные с префиксом **vm_db_** в том же файле ('vms_platform.tf').  ВМ должна работать в зоне "ru-central1-b"
 3. Примените изменения.
 
+![alt text]()
 
 ### Задание 4
 
@@ -40,6 +43,7 @@
 
 В качестве решения приложите вывод значений ip-адресов команды ```terraform output```.
 
+![alt text]()
 
 ### Задание 5
 
@@ -47,6 +51,7 @@
 2. Замените переменные внутри ресурса ВМ на созданные вами local-переменные.
 3. Примените изменения.
 
+![alt text]()
 
 ### Задание 6
 
@@ -86,6 +91,9 @@
 
 ------
 
+![alt text]()
+
+
 ## Дополнительное задание (со звёздочкой*)
 
 **Настоятельно рекомендуем выполнять все задания со звёздочкой.**   
@@ -97,11 +105,26 @@
 
 Изучите содержимое файла console.tf. Откройте terraform console, выполните следующие задания: 
 
-1. Напишите, какой командой можно отобразить **второй** элемент списка test_list.
-2. Найдите длину списка test_list с помощью функции length(<имя переменной>).
-3. Напишите, какой командой можно отобразить значение ключа admin из map test_map.
-4. Напишите interpolation-выражение, результатом которого будет: "John is admin for production server based on OS ubuntu-20-04 with X vcpu, Y ram and Z virtual disks", используйте данные из переменных test_list, test_map, servers и функцию length() для подстановки значений.
-
+1. Напишите, какой командой можно отобразить **второй** элемент списка test_list.  
+```
+local.test_list[1]
+```
+![alt text]()
+2. Найдите длину списка test_list с помощью функции length(<имя переменной>).  
+```
+length(join("",local.test_lists))
+```
+![alt text]()
+3. Напишите, какой командой можно отобразить значение ключа admin из map test_map.  
+```
+[for k,v in local.test_map : k if v == "John"]
+```
+![alt text]()
+4. Напишите interpolation-выражение, результатом которого будет: "John is admin for production server based on OS ubuntu-20-04 with X vcpu, Y ram and Z virtual disks", используйте данные из переменных test_list, test_map, servers и функцию length() для подстановки значений.  
+```
+"${local.test_map.admin} is ${keys(local.test_map)[0]} for ${local.test_list[2]} server based on OS ${local.servers.production.image} with ${values(local.servers.production)[0]} vcpus, ${values(local.servers.production)[3]} ram, ${length(local.servers.production.disks)} virtual disks"
+```
+![alt text]()
 **Примечание**: если не догадаетесь как вычленить слово "admin", погуглите: "terraform get keys of map"
 
 В качестве решения предоставьте необходимые команды и их вывод.
@@ -133,8 +156,11 @@ test = [
 ]
 ```
 2. Напишите выражение в terraform console, которое позволит вычленить строку "ssh -o 'StrictHostKeyChecking=no' ubuntu@62.84.124.117" из этой переменной.
-------
 
+```
+var.test[0].dev1[0]
+```
+![alt text]()
 ------
 
 ### Задание 9*
