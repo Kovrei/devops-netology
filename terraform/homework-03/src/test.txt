@@ -1,0 +1,40 @@
+resource "yandex_compute_instance" "main" {
+
+  for_each = {
+    0 = "first"
+    1 = "second"
+  }
+  name = "netology-develop-platform-web-${each.key}"
+    tags = {
+        Name = ${each.value}
+    }
+
+  platform_id = var.vm_platform_id
+
+
+   resources {
+    cores         = var.vm_cores
+    memory        = var.vm_memory
+    core_fraction = var.vm_core_fraction
+  }
+
+  boot_disk {
+    initialize_params {
+      image_id = data.yandex_compute_image.ubuntu-2004-lts.image_id
+      type     = var.vm_disk_type
+      size     = var.vm_disk_size
+    }
+  }
+
+  metadata = var.metadata
+
+  scheduling_policy {
+    preemptible = var.vm_police_shedul
+  }
+
+  network_interface {
+    index     = var.vm_index
+    subnet_id = yandex_vpc_subnet.develop.id
+  }
+}
+
