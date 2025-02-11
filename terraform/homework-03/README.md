@@ -9,11 +9,21 @@
 
 Приложите скриншот входящих правил «Группы безопасности» в ЛК Yandex Cloud .
 
+[alt text]{https://github.com/Kovrei/devops-netology/blob/terraform-03/terraform/homework-03/img/3.1.JPG}
+
 ------
 
 ### Задание 2
 
 1. Создайте файл count-vm.tf. Опишите в нём создание двух **одинаковых** ВМ  web-1 и web-2 (не web-0 и web-1) с минимальными параметрами, используя мета-аргумент **count loop**. Назначьте ВМ созданную в первом задании группу безопасности.(как это сделать узнайте в документации провайдера yandex/compute_instance )
+
+[count-vm.tf]{https://github.com/Kovrei/devops-netology/blob/terraform-03/terraform/homework-03/src/count_vm.tf}  
+
+[alt text]{https://github.com/Kovrei/devops-netology/blob/terraform-03/terraform/homework-03/img/3.2.1.JPG}
+
+[alt text]{https://github.com/Kovrei/devops-netology/blob/terraform-03/terraform/homework-03/img/3.2.1.1.JPG?raw=true}
+
+
 2. Создайте файл for_each-vm.tf. Опишите в нём создание двух ВМ для баз данных с именами "main" и "replica" **разных** по cpu/ram/disk_volume , используя мета-аргумент **for_each loop**. Используйте для обеих ВМ одну общую переменную типа:
 ```
 variable "each_vm" {
@@ -21,16 +31,48 @@ variable "each_vm" {
 }
 ```  
 При желании внесите в переменную все возможные параметры.
-4. ВМ из пункта 2.1 должны создаваться после создания ВМ из пункта 2.2.
-5. Используйте функцию file в local-переменной для считывания ключа ~/.ssh/id_rsa.pub и его последующего использования в блоке metadata, взятому из ДЗ 2.
-6. Инициализируйте проект, выполните код.
+
+[for_each-vm.tf]{https://github.com/Kovrei/devops-netology/blob/terraform-03/terraform/homework-03/src/for_each-vm.tf}  
+
+[alt text]{https://github.com/Kovrei/devops-netology/blob/terraform-03/terraform/homework-03/img/3.2.2.JPG?raw=true}
+
+[alt text]{https://github.com/Kovrei/devops-netology/blob/terraform-03/terraform/homework-03/img/3.2.2.1.JPG?raw=true}
+
+3. ВМ из пункта 2.1 должны создаваться после создания ВМ из пункта 2.2.
+
+[count-vm.tf]{https://github.com/Kovrei/devops-netology/blob/terraform-03/terraform/homework-03/src/count_vm.tf}  
+
+[alt text]{https://github.com/Kovrei/devops-netology/blob/terraform-03/terraform/homework-03/img/3.2.3.JPG?raw=true}
+
+4. Используйте функцию file в local-переменной для считывания ключа ~/.ssh/id_rsa.pub и его последующего использования в блоке metadata, взятому из ДЗ 2.
+
+[locals.tf]{https://github.com/Kovrei/devops-netology/blob/terraform-03/terraform/homework-03/src/locals.tf} 
+
+[alt text]{https://github.com/Kovrei/devops-netology/blob/terraform-03/terraform/homework-03/img/3.2.4.JPG?raw=true}
+
+5. Инициализируйте проект, выполните код.
+
+[alt text]{https://github.com/Kovrei/devops-netology/blob/terraform-03/terraform/homework-03/img/3.2.5.JPG?raw=true}
 
 ------
 
 ### Задание 3
 
 1. Создайте 3 одинаковых виртуальных диска размером 1 Гб с помощью ресурса yandex_compute_disk и мета-аргумента count в файле **disk_vm.tf** .
+
+[disk_vm.tf]{https://github.com/Kovrei/devops-netology/blob/terraform-03/terraform/homework-03/src/disk_vm.tf}  
+
+[alt text]{https://github.com/Kovrei/devops-netology/blob/terraform-03/terraform/homework-03/img/3.3.1.1.JPG?raw=true}
+
+[alt text]{https://github.com/Kovrei/devops-netology/blob/terraform-03/terraform/homework-03/img/3.3.1.2.JPG?raw=true}
+
 2. Создайте в том же файле **одиночную**(использовать count или for_each запрещено из-за задания №4) ВМ c именем "storage"  . Используйте блок **dynamic secondary_disk{..}** и мета-аргумент for_each для подключения созданных вами дополнительных дисков.
+
+[disk_vm.tf]{https://github.com/Kovrei/devops-netology/blob/terraform-03/terraform/homework-03/src/disk_vm.tf}  
+
+[alt text]{https://github.com/Kovrei/devops-netology/blob/terraform-03/terraform/homework-03/img/3.3.2.1.JPG?raw=true}
+
+[alt text]{https://github.com/Kovrei/devops-netology/blob/terraform-03/terraform/homework-03/img/3.3.2.2.JPG?raw=true}
 
 ------
 
@@ -40,6 +82,9 @@ variable "each_vm" {
 Используйте функцию tepmplatefile и файл-шаблон для создания ansible inventory-файла из лекции.
 Готовый код возьмите из демонстрации к лекции [**demonstration2**](https://github.com/netology-code/ter-homeworks/tree/main/03/demo).
 Передайте в него в качестве переменных группы виртуальных машин из задания 2.1, 2.2 и 3.2, т. е. 5 ВМ.
+
+[ansible.tf]{https://github.com/Kovrei/devops-netology/blob/terraform-03/terraform/homework-03/src/ansible.tf}
+
 2. Инвентарь должен содержать 3 группы и быть динамическим, т. е. обработать как группу из 2-х ВМ, так и 999 ВМ.
 3. Добавьте в инвентарь переменную  [**fqdn**](https://cloud.yandex.ru/docs/compute/concepts/network#hostname).
 ``` 
@@ -55,7 +100,12 @@ replica ansible_host<внешний ip-адрес> fqdn=<полное домен
 storage ansible_host=<внешний ip-адрес> fqdn=<полное доменное имя виртуальной машины>
 ```
 Пример fqdn: ```web1.ru-central1.internal```(в случае указания переменной hostname(не путать с переменной name)); ```fhm8k1oojmm5lie8i22a.auto.internal```(в случае отсутвия перменной hostname - автоматическая генерация имени,  зона изменяется на auto). нужную вам переменную найдите в документации провайдера или terraform console.
+
+[hosts.tftpl]{https://github.com/Kovrei/devops-netology/blob/terraform-03/terraform/homework-03/src/hosts.tftpl}  
+
 4. Выполните код. Приложите скриншот получившегося файла. 
+
+[alt text]{https://github.com/Kovrei/devops-netology/blob/terraform-03/terraform/homework-03/img/3.4.JPG?raw=true}
 
 Для общего зачёта создайте в вашем GitHub-репозитории новую ветку terraform-03. Закоммитьте в эту ветку свой финальный код проекта, пришлите ссылку на коммит.   
 **Удалите все созданные ресурсы**.
