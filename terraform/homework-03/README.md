@@ -70,6 +70,8 @@ variable "each_vm" {
 
 [disk_vm.tf](https://github.com/Kovrei/devops-netology/blob/terraform-03/terraform/homework-03/src/disk_vm.tf)  
 
+![alt text](https://github.com/Kovrei/devops-netology/blob/terraform-03/terraform/homework-03/img/3.3.2.3.JPG?raw=true)
+
 ![alt text](https://github.com/Kovrei/devops-netology/blob/terraform-03/terraform/homework-03/img/3.3.2.1.JPG?raw=true)
 
 ![alt text](https://github.com/Kovrei/devops-netology/blob/terraform-03/terraform/homework-03/img/3.3.2.2.JPG?raw=true)
