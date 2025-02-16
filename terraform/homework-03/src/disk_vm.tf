@@ -16,31 +16,31 @@ resource "yandex_compute_disk" "boot_disk" {
 # создание ВМ для подключения жестких дисков
 resource "yandex_compute_instance" "storage" {
 
-  for_each = var.each_storage
-
-  name        = each.value.index_name
-  hostname    = each.value.index_name
+  name        = var.storage_name
+  hostname    = var.storage_hostname
   platform_id = var.platform_id
-  zone        = var.default_zone
+
 
   resources {
-    cores         = each.value.cores
-    memory        = each.value.memory
-    core_fraction = each.value.core_fraction
+    cores         = var.storage_cores
+    memory        = var.storage_memory
+    core_fraction = var.storage_core_fraction
   }
 
   boot_disk {
     initialize_params {
       image_id = data.yandex_compute_image.ubuntu-2004-lts.image_id
+      type     = var.web_disk_type
+      size     = var.web_disk_size
     }
   }
 
-  dynamic "secondary_disk" {
-    for_each = yandex_compute_disk.boot_disk
-    content {
-      disk_id = lookup(secondary_disk.value, "id", null)
-    }
-  }
+  #dynamic "secondary_disk" {
+  #  for_each = yandex_compute_disk.boot_disk
+  #  content {
+  #    disk_id = lookup(secondary_disk.value, "id", null)
+  #  }
+  #}
 
   metadata = {
     ssh-keys = local.ssh-keys
@@ -51,7 +51,10 @@ resource "yandex_compute_instance" "storage" {
   }
 
   network_interface {
-    nat       = each.value.nat
+    nat       = var.storage_nat
     subnet_id = yandex_vpc_subnet.develop.id
   }
+
+  allow_stopping_for_update = var.storage_allow_stopping_for_update
+
 }

@@ -36,6 +36,9 @@ resource "yandex_compute_instance" "web" {
     nat       = var.web_nat
     subnet_id = yandex_vpc_subnet.develop.id
   }
+
+  allow_stopping_for_update = var.web_allow_stopping_for_update
+
 }
 
 

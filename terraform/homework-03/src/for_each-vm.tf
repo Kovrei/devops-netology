@@ -36,5 +36,8 @@ resource "yandex_compute_instance" "double_vm" {
     nat       = each.value.nat
     subnet_id = yandex_vpc_subnet.develop.id
   }
+
+  allow_stopping_for_update = each.value.allow_stopping_for_update
+
 }
 

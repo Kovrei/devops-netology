@@ -93,6 +93,12 @@ variable "web_nat" {
   default     = true
 }
 
+variable "web_allow_stopping_for_update" {
+  description = "работу ресурса можно останавливать для внесения изменений"
+  type        = bool
+  default     = true
+}
+
 
 ### resources instance double vm ###
 
@@ -107,6 +113,7 @@ variable "each_vm" {
     disk_type     = string
     preemptible   = bool
     nat           = bool
+    allow_stopping_for_update = bool
   }))
 
   default = {
@@ -119,6 +126,7 @@ variable "each_vm" {
       disk_type     = "network-hdd"
       preemptible   = true
       nat           = true
+      allow_stopping_for_update = true
     }
 
     "replica" = {
@@ -130,6 +138,7 @@ variable "each_vm" {
       disk_type     = "network-hdd"
       preemptible   = true
       nat           = true
+      allow_stopping_for_update = true
     }
   }
   description = "the double main of creating instance"
@@ -138,28 +147,62 @@ variable "each_vm" {
 
 ### resources instance storage vm ###
 
+variable "storage_name" {
+  description = "VM name"
+  type        = string
+  default     = "storage"
+}
 
-variable "each_storage" {
-  type = map(object({
-    index_name    = string
-    cores         = number
-    memory        = number
-    core_fraction = number
-    preemptible   = bool
-    nat           = bool
-  }))
+variable "storage_hostname" {
+  description = "VM hostname"
+  type        = string
+  default     = "storage"
+}
 
-  default = {
-    "storage" = {
-      index_name    = "storage"
-      cores         = 2
-      memory        = 1
-      core_fraction = 20
-      preemptible   = true
-      nat           = true
-    }
-  }
-  description = "the storage of creating instance"
+variable "storage_cores" {
+  description = "Cores allocated to instance"
+  type        = number
+  default     = 2
+}
+variable "storage_memory" {
+  description = "Memory allocated to instance (in Gb)"
+  type        = number
+  default     = 1
+}
+variable "storage_core_fraction" {
+  description = "Core fraction applied to instance"
+  type        = number
+  default     = 20
+}
+
+variable "storage_disk_type" {
+  description = "Disk type to instance"
+  type        = string
+  default     = "network-hdd"
+}
+
+variable "storage_disk_size" {
+  description = "Disk size to instance"
+  type        = number
+  default     = 5
+}
+
+variable "storage_preemptible" {
+  description = "sheduling police preemptible"
+  type        = bool
+  default     = true
+}
+
+variable "storage_nat" {
+  description = "network_interface nat"
+  type        = bool
+  default     = true
+}
+
+variable "storage_allow_stopping_for_update" {
+  description = "работу ресурса можно останавливать для внесения изменений"
+  type        = bool
+  default     = true
 }
 
 
