@@ -35,12 +35,12 @@ resource "yandex_compute_instance" "storage" {
     }
   }
 
-  #dynamic "secondary_disk" {
-  #  for_each = yandex_compute_disk.boot_disk
-  #  content {
-  #    disk_id = lookup(secondary_disk.value, "id", null)
-  #  }
-  #}
+  dynamic "secondary_disk" {
+    for_each = yandex_compute_disk.boot_disk
+    content {
+      disk_id = lookup(secondary_disk.value, "id", null)
+    }
+  }
 
   metadata = {
     ssh-keys = local.ssh-keys
