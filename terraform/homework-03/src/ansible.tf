@@ -6,7 +6,7 @@ resource "local_file" "hosts_templatefile" {
 
       webservers = yandex_compute_instance.web,
       databases  = yandex_compute_instance.double_vm,
-      storage    = yandex_compute_instance.storage
+      storage    = [yandex_compute_instance.storage]
     }
   )
 
