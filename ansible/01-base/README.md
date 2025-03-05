@@ -30,7 +30,7 @@ RUN apt-get update && apt-get install -y \
 Команды:
 ```
 docker build -t vm1/ubuntu:v1
-docker run -d -t --name vm1/ubuntu:v1
+docker run -d -t --name ubuntu vm1/ubuntu:v1
 docker run -d -t --name centos7 centos:7
 
 ```
