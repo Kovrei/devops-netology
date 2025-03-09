@@ -1,0 +1,79 @@
+# {{ ansible_managed }}
+#
+#                                    __   __  __
+#                                    \ \ / / / /
+#                                     \ V / / /
+#                                      \_/  \/
+#
+#                                    V E C T O R
+#                            Configuration Specification
+#
+# ------------------------------------------------------------------------------
+# Website: https://vector.dev
+# Docs: https://vector.dev/docs/
+# Community: https://vector.dev/community/
+# ------------------------------------------------------------------------------
+# The file contains a full specification for the `vector.toml` configuration
+# file. It follows the TOML format and includes all options, types, and
+# possible values.
+#
+# More info on Vector's configuration can be found at:
+# /docs/setup/configuration/
+
+# ------------------------------------------------------------------------------
+# Global
+# ------------------------------------------------------------------------------
+# Global options are relevant to Vector as a whole and apply to global behavior.
+
+#
+# General
+#
+
+# The directory used for persisting Vector state, such as on-disk buffers, file
+# checkpoints, and more. Please make sure the Vector project has write
+# permissions to this dir.
+#
+# * optional
+# * no default
+# * type: string
+data_dir = "{{ vector_data_dir }}"
+
+# ------------------------------------------------------------------------------
+# Sources
+# ------------------------------------------------------------------------------
+# Sources specify data sources and are responsible for ingesting data into
+# Vector.
+
+[sources.journald]
+    type = "journald"
+    current_boot_only = true
+
+# ------------------------------------------------------------------------------
+# Transforms
+# ------------------------------------------------------------------------------
+# Transforms parse, structure, and enrich events.
+
+# Accepts and outputs `log` events, allowing you to add one or more log fields.
+[transforms.add_fields]
+  # A list of upstream source or transform IDs. See configuration for more info.
+  inputs = ["myField"]
+
+  # The component type. This is a required field that tells Vector which
+  # component to use. The value _must_ be `#{name}`.
+  type = "add_fields"
+
+  #
+  # Fields
+  #
+  [transforms.add_fields.fields]
+    string_field = "myField"
+
+# ------------------------------------------------------------------------------
+# Sinks
+# ------------------------------------------------------------------------------
+# Sinks batch or stream data out of Vector.
+
+[sinks.vector]
+    type = "vector"
+    inputs = ["journald"]
+    address = "vector.example.com:9000"

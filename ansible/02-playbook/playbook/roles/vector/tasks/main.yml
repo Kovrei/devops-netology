@@ -1,0 +1,10 @@
+---
+
+- name: VECTOR | Include variables based on the environment
+  include_vars: "{{ ansible_os_family | lower }}.yml"
+
+- name: VECTOR | Install package based on the OS environment
+  include_tasks: "{{ ansible_os_family | lower }}.yml"
+
+- name: VECTOR | Configuration
+  include_tasks: configure.yml

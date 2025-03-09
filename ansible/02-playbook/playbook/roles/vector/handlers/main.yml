@@ -1,0 +1,7 @@
+---
+- name: Restart vector
+  become: no
+  service:
+    name: vector
+    state: restarted
+    enabled: yes

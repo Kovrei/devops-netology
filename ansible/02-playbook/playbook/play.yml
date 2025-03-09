@@ -1,0 +1,8 @@
+---
+  - name: Print os facts
+    hosts: all
+
+  - hosts: vector
+    remote_user: vm1
+    roles:
+      - vector

@@ -1,0 +1,10 @@
+---
+ubuntu1:
+  hosts:
+    clickhouse-01:
+      ansible_connection: docker
+
+ubuntu2:
+  hosts:
+    vector:
+      ansible_connection: docker

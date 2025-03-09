@@ -1,0 +1,3 @@
+---
+- name: restart vector
+  ansible.builtin.systemd: name=vector state=restarted enabled=true
