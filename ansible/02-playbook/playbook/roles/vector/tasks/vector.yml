@@ -1,0 +1,29 @@
+---
+- block:
+    - name: Get vector distrib
+      ansible.builtin.get_url:
+        url: "https://apt.vector.dev/pool/v/ve/vector_{{ vector_version }}-1_{{ arch }}.deb"
+        dest: "./vector_{{ vector_version }}_{{ arch }}.deb"
+      with_items: "{{ vector_packages }}"
+
+- name: Install vector packages
+  #become: true
+  ansible.builtin.apt:
+    name:
+      - vector_{{ vector_version }}_{{ arch }}.deb
+  notify: Start vector service
+
+- name: Template a file to /etc/vector/config.toml
+  ansible.builtin.template:
+    src: ./roles/vector/tamplatesconfig.j2
+    dest: /etc/vector/config.toml
+    owner: bin
+    group: wheel
+    mode: '0644'
+
+- name: Create a directory if it does not exist
+  ansible.builtin.file:
+    path: /etc/vector
+    state: directory
+    mode: '0755'
+

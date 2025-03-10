@@ -1,8 +1,0 @@
-
----
-
-- name: VECTOR UBUNTU | Download and install deb package
-  apt:
-    deb: "{{ vector_package_name }}"
-    state: present
-  notify: Restart vector

@@ -1,0 +1,4 @@
+---
+some_fact: "deb2"
+vector_version: "0.45.0"
+arch: "amd64" #arm64 armhf

@@ -2,7 +2,16 @@
   - name: Print os facts
     hosts: all
 
-  - hosts: vector
+
+    tasks:
+      - name: Print OS
+        debug:
+          msg: "{{ ansible_distribution }}"
+      - name: Print fact
+        debug:
+          msg: "{{ some_fact }}"
+
+  - hosts: vector-01
     remote_user: vm1
     roles:
       - vector

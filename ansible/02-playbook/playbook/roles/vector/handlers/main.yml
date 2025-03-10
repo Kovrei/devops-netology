@@ -1,7 +1,6 @@
 ---
-- name: Restart vector
-  become: no
-  service:
-    name: vector
-    state: restarted
-    enabled: yes
+    - name: Start clickhouse service
+      become: true
+      ansible.builtin.service:
+        name: vector
+        state: restarted

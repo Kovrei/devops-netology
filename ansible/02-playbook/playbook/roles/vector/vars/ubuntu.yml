@@ -1,8 +1,0 @@
----
-
-###
-# Ubuntu
-###
-
-# DEB package URL
-vector_package_name: "https://packages.timber.io/vector/{{ vector_version }}/vector-amd64.deb"
