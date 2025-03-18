@@ -3,8 +3,11 @@ clickhouse:
   hosts:
     clickhouse-01:
       ansible_connection: docker
+      ansible_become_method: su
+
 
 vector:
   hosts:
     vector-01:
       ansible_connection: docker
+      ansible_become_method: su

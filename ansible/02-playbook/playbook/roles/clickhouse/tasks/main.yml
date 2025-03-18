@@ -1,0 +1,18 @@
+---
+
+#- name: Set hostname
+#  ansible.builtin.hostname:
+#    name: "{{ inventory_hostname }}"
+  #remote_user: vm1
+  #become: yes
+  #become_method: sudo
+
+  - name: Include clickhouse installation
+    ansible.builtin.import_tasks: clickhouse.yml
+
+  #- name: Installation as a systemctl-replacement
+  #  ansible.builtin.import_tasks: systemctl.yml
+
+
+  - name: Create database
+    ansible.builtin.import_tasks: DB.yml

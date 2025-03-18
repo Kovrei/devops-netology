@@ -1,5 +1,5 @@
 ---
-    - name: Start clickhouse service
+    - name: Start vector service
       become: true
       ansible.builtin.service:
         name: vector

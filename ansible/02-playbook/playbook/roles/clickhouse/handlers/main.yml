@@ -1,3 +1,6 @@
 ---
-- name: restart vector
-  ansible.builtin.systemd: name=vector state=restarted enabled=true
+    - name: Start clickhouse service
+      become: true
+      ansible.builtin.service:
+        name: clickhouse-server
+        state: restarted

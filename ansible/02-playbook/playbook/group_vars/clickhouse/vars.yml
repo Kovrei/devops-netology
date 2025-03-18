@@ -1,6 +1,6 @@
 ---
-some_fact: "deb1"
-clickhouse_version: "22.3.3.44"
+some_fact: "centos"
+clickhouse_version: "22.3.11.12"
 clickhouse_packages:
   - clickhouse-client
   - clickhouse-server
