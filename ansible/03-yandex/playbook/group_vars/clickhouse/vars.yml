@@ -1,0 +1,8 @@
+---
+some_fact: "centos"
+
+clickhouse_version: "22.3.11.12"
+clickhouse_packages:
+  - clickhouse-client
+  - clickhouse-server
+  - clickhouse-common-static

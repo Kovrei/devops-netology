@@ -1,0 +1,45 @@
+---
+  - name: Print os facts
+    hosts: all
+ 
+    tasks:
+      - name: Print OS
+        debug:
+          msg: "{{ ansible_distribution }}"
+      - name: Print fact
+        debug:
+          msg: "{{ some_fact }}"
+
+  - name: Clickhouse installation & configuration
+    hosts: clickhouse-01
+    remote_user: vm1
+    become: true
+    become_user: root
+    become_method: sudo
+    gather_facts: true
+    roles:
+      - { role: clickhouse }
+    tags: clickhouse-01
+
+
+  - name: Vector installation & configuration
+    hosts: vector-01
+    remote_user: vm1
+    become: true
+    become_user: root
+    become_method: sudo
+    gather_facts: true
+    roles:
+      - { role: vector }
+    tags: vector-01
+
+  - name: Lighthouse installation & configuration
+    hosts: lighthouse-01
+    remote_user: vm1
+    become: true
+    become_user: root
+    become_method: sudo
+    gather_facts: true
+    roles:
+      - { role: lighthouse }
+    tags: lighthouse-01

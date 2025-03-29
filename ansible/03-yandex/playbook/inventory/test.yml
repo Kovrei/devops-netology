@@ -1,0 +1,7 @@
+---
+
+lighthouse:  
+  hosts:
+    lighthouse-01:
+      ansible_host: 89.169.137.110
+      ansible_user: vm1 

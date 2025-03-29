@@ -1,0 +1,110 @@
+--- 
+- name: YCC Playbook VM clickhouse
+  hosts: localhost
+  tasks:
+    - name: Create vm
+      ycc_vm:     
+        auth:
+          token: !vault |
+              $ANSIBLE_VAULT;1.1;AES256
+              64326165626535646362376366303961633666613935656233373032613130313361646239316363
+              3465356631353535646233663635363266383130353961330a383466303035613366386561393461
+              33343131643030623466323966316362666133316233326334323465386137373530376566626538
+              3934313532373332360a626334336566653139303733303863323835306462656337353937623430
+              35656664303534343231333532346661363437303161623564353738336461303566666430623436
+              61353038376534376436393662313262396636653630663835383264363037633666353463396165
+              313763303631306162633834383836646138
+        name: clickhouse-01
+        login: vm1
+        public_ssh_key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJH5P18hx+SKpl9YqcBDJVC1gv/6yN74h3GaJ3r4HOoQ vm1@vm1
+        hostname: clickhouse-01
+        zone_id: ru-central1-a
+        folder_id: b1gpmvq18drtrb8dtdim
+        platform_id: "Intel Broadwell"
+        core_fraction: 20
+        cores: 2
+        memory: 2
+        image_id: fd8ldaqfnhflsp5vipjh
+        disk_type: hdd
+        disk_size: 10
+        subnet_id: e9bp0nd74qj5hiheq66q
+        #secondary_subnet_id: e2l3dk5nid5fdegfthu4
+        assign_public_ip: true
+        preemptible: true
+        #metadata:
+            #user-data: "cloud init format in str"
+        state: present
+
+
+- name: YCC Playbook VM lighthouse
+  hosts: localhost
+  tasks:
+    - name: Create vm
+      ycc_vm:     
+        auth:
+          token: !vault |
+              $ANSIBLE_VAULT;1.1;AES256
+              64326165626535646362376366303961633666613935656233373032613130313361646239316363
+              3465356631353535646233663635363266383130353961330a383466303035613366386561393461
+              33343131643030623466323966316362666133316233326334323465386137373530376566626538
+              3934313532373332360a626334336566653139303733303863323835306462656337353937623430
+              35656664303534343231333532346661363437303161623564353738336461303566666430623436
+              61353038376534376436393662313262396636653630663835383264363037633666353463396165
+              313763303631306162633834383836646138
+        name: lighthouse-01
+        login: vm1
+        public_ssh_key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJH5P18hx+SKpl9YqcBDJVC1gv/6yN74h3GaJ3r4HOoQ vm1@vm1
+        hostname: lighthouse-01
+        zone_id: ru-central1-a
+        folder_id: b1gpmvq18drtrb8dtdim
+        platform_id: "Intel Broadwell"
+        core_fraction: 20
+        cores: 2
+        memory: 2
+        image_id: fd80ovuibhi56app54sj
+        disk_type: hdd
+        disk_size: 10
+        subnet_id: e9bp0nd74qj5hiheq66q
+        #secondary_subnet_id: e2l3dk5nid5fdegfthu4
+        assign_public_ip: true
+        preemptible: true
+        #metadata:
+            #user-data: "cloud init format in str"
+        state: present        
+
+- name: YCC Playbook VM vector
+  hosts: localhost
+  tasks:
+    - name: Create vm
+      ycc_vm:     
+        auth:
+          token: !vault |
+              $ANSIBLE_VAULT;1.1;AES256
+              64326165626535646362376366303961633666613935656233373032613130313361646239316363
+              3465356631353535646233663635363266383130353961330a383466303035613366386561393461
+              33343131643030623466323966316362666133316233326334323465386137373530376566626538
+              3934313532373332360a626334336566653139303733303863323835306462656337353937623430
+              35656664303534343231333532346661363437303161623564353738336461303566666430623436
+              61353038376534376436393662313262396636653630663835383264363037633666353463396165
+              313763303631306162633834383836646138
+        name: vector-01
+        login: vm1
+        public_ssh_key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJH5P18hx+SKpl9YqcBDJVC1gv/6yN74h3GaJ3r4HOoQ vm1@vm1
+        hostname: vector-01
+        zone_id: ru-central1-a
+        folder_id: b1gpmvq18drtrb8dtdim
+        platform_id: "Intel Broadwell"
+        core_fraction: 20
+        cores: 2
+        memory: 2
+        image_id: fd80ovuibhi56app54sj
+        disk_type: hdd
+        disk_size: 10
+        subnet_id: e9bp0nd74qj5hiheq66q
+        #secondary_subnet_id: e2l3dk5nid5fdegfthu4
+        assign_public_ip: true
+        preemptible: true
+        #metadata:
+            #user-data: "cloud init format in str"
+        state: present
+    
