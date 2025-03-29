@@ -70,10 +70,12 @@ ansible-playbook site.yml -i inventory/prod.yml --diff
 ![alt text](https://github.com/Kovrei/devops-netology/blob/main/ansible/03-yandex/img/3.8.JPG) 
 
 **Результаты:**  
-clickhouse
+clickhouse  
 ![alt text](https://github.com/Kovrei/devops-netology/blob/main/ansible/03-yandex/img/clickhouse.JPG)  
+
 vector  
 ![alt text](https://github.com/Kovrei/devops-netology/blob/main/ansible/03-yandex/img/vector.JPG)
+
 lighthouse  
 ![alt text](https://github.com/Kovrei/devops-netology/blob/main/ansible/03-yandex/img/lighthouse.JPG)  
 
