@@ -9,9 +9,7 @@
 
 1. Допишите playbook: нужно сделать ещё один play, который устанавливает и настраивает LightHouse.
 
-**Создание 3 ВМ в yandex.cloud**    
-
-[vm](https://github.com/Kovrei/devops-netology/tree/main/ansible/03-yandex/vm)
+**Создание 3 [vm](https://github.com/Kovrei/devops-netology/tree/main/ansible/03-yandex/vm) в yandex.cloud**    
 
 ```
 ansible-vault encrypt_string --vault-id @prompt "token"
@@ -21,14 +19,11 @@ ansible-vault encrypt_string --vault-id @prompt "token"
 ansible-playbook --vault-id @prompt allVM.yml
 ```
 
-**Playbook для создания lighthouse**  
-[playboоk](https://github.com/Kovrei/devops-netology/tree/main/ansible/03-yandex/playbook)
-
+**[Playboоk](https://github.com/Kovrei/devops-netology/tree/main/ansible/03-yandex/playbook) для создания lighthouse**  
 
 2. При создании tasks рекомендую использовать модули: `get_url`, `template`, `yum`, `apt`.
 
-**Создана роль для lighthouse [role]()**  
-[role](https://github.com/Kovrei/devops-netology/tree/main/ansible/03-yandex/playbook/roles/lighthouse)
+**Создана [role](https://github.com/Kovrei/devops-netology/tree/main/ansible/03-yandex/playbook/roles/lighthouse) для lighthouse**  
 
 3. Tasks должны: скачать статику LightHouse, установить Nginx или любой другой веб-сервер, настроить его конфиг для открытия LightHouse, запустить веб-сервер.
 
