@@ -1,0 +1,5 @@
+---
+- name: Create home directory for www
+  ansible.builtin.file:
+    path: /var/www/{{ virtual_domain }}
+    state: directory

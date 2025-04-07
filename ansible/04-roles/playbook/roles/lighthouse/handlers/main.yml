@@ -1,0 +1,9 @@
+---
+- name: Start Nginx
+  ansible.builtin.command: nginx
+  changed_when: false
+
+- name: Reload Nginx
+  ansible.builtin.command: nginx -s reload
+  become: true
+  changed_when: false

@@ -1,0 +1,4 @@
+---
+- name: Include vector installation
+  ansible.builtin.import_tasks: vector.yml
+  tags: v1.0

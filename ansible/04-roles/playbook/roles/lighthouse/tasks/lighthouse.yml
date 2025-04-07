@@ -1,0 +1,16 @@
+---
+- name: Install git for lighthouse
+  ansible.builtin.apt:
+    name: git
+    state: latest
+
+- name: Clone lighthouse
+  ansible.builtin.git:
+    repo: "{{ repo }}"
+    dest: "./lighthouse"
+
+- name: Create lighthouse config a file to /etc/nginx/conf.d/default.conf
+  ansible.builtin.template:
+    src: ./roles/lighthouse/tamplates/lighthouse.conf.j2
+    dest: "{{ lighthouse_dir }}"
+  notify: Reload nginx

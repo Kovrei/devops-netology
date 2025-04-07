@@ -1,0 +1,9 @@
+---
+
+- name: Install nginx
+  ansible.builtin.import_tasks: nginx.yml
+  tags: v1.0
+
+- name: Include lighthouse create
+  ansible.builtin.import_tasks: lighthouse.yml
+  tags: v1.0
