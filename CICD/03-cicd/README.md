@@ -70,9 +70,10 @@ sonar-scanner \
 ```
 </details>
 
-6. Посмотрите результат в интерфейсе.
+<details><summary>6. Посмотрите результат в интерфейсе.</summary>
 
 ![alt text](https://github.com/Kovrei/devops-netology/blob/main/CICD/03-cicd/img/3.6.JPG)
+</details>
 
 7. Исправьте ошибки, которые он выявил, включая warnings.
 
@@ -136,18 +137,12 @@ sonar-scanner \
 
 2. Запустите команду `mvn package` в директории с `pom.xml`, ожидайте успешного окончания.
 
-3. Проверьте директорию `~/.m2/repository/`, найдите ваш артефакт.
+<details><summary>3. Проверьте директорию `~/.m2/repository/`, найдите ваш артефакт.</summary>
 
 ![alt text](https://github.com/Kovrei/devops-netology/blob/main/CICD/03-cicd/img/3.3.JPG)
-
-<details><summary>4. В ответе пришлите исправленный файл `pom.xml`.</summary>
-
--> edit  
-**[pom.xml](./mvn/pom.xml)**  
--> command  
-**mvn package**  
--> new autocreate folder target. Build success
 </details>
+
+4. В ответе пришлите исправленный файл `pom.xml`.
 
 [pom.xml](./mvn/pom.xml) 
 
