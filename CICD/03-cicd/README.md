@@ -139,7 +139,7 @@ maven-public
 
 3. Проверьте директорию `~/.m2/repository/`, найдите ваш артефакт.
 
-[alt text](https://github.com/Kovrei/devops-netology/blob/main/CICD/03-cicd/img/3.3.JPG)
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/CICD/03-cicd/img/3.3.JPG)
 
 <details><summary>4. В ответе пришлите исправленный файл `pom.xml`.</summary>
 
