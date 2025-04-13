@@ -53,11 +53,11 @@ sudo unzip sonar-scanner.zip -d ~/opt
  export PATH=$(pwd):$PATH  
 </details> 
 
-<details><summary>4. Проверьте `sonar-scanner --version`.<summary>
+<details><summary>4. Проверьте `sonar-scanner --version`.</summary> 
  sonar-scanner -v 
-<details>
+</details>
 
-<details><summary>5. Запустите анализатор против кода из директории [example](./example) с дополнительным ключом `-Dsonar.coverage.exclusions=fail.py`.<summary>
+<details><summary>5. Запустите анализатор против кода из директории [example](./example) с дополнительным ключом `-Dsonar.coverage.exclusions=fail.py`.</summary> 
  
  cd ...../example  
  -> copy past
@@ -69,11 +69,11 @@ sonar-scanner \
   -Dsonar.login=fa0a983ad17e17cfdd08c487e8e79b3359095a96 \
   -Dsonar.coverage.exclusions=fail.py  
 ```
-<details>
+</details>
 
 6. Посмотрите результат в интерфейсе.
 
-![alt text]()
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/CICD/03-cicd/img/3.6.JPG)
 
 7. Исправьте ошибки, которые он выявил, включая warnings.
 
@@ -81,13 +81,13 @@ sonar-scanner \
 
 9. Сделайте скриншот успешного прохождения анализа, приложите к решению ДЗ.
 
-![alt text]()
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/CICD/03-cicd/img/3.9.JPG)
 
 ## Знакомство с Nexus
 
 ### Основная часть
 
-<details><summary>1. В репозиторий `maven-public` загрузите артефакт с GAV-параметрами:<summary>
+<details><summary>1. В репозиторий `maven-public` загрузите артефакт с GAV-параметрами:</summary> 
 
  *    groupId: netology;
  *    artifactId: java;
@@ -106,22 +106,15 @@ upload
 browse  
 ->  
 maven-public  
-<details>
+</details>
 
 2. В него же загрузите такой же артефакт, но с version: 8_102.
 
-<details><summary>3. Проверьте, что все файлы загрузились успешно.<summary>
-
--> edit  
-[pom.xml]()  
--> command  
-mvn package  
--> new autocreate folder target. Build success
-<details>
+3. Проверьте, что все файлы загрузились успешно.
 
 4. В ответе пришлите файл `maven-metadata.xml` для этого артефекта.
 
-[maven-metadata.xml]()
+[maven-metadata.xml](./mvn/maven-metadata.xml)  
 
 
 ### Знакомство с Maven
@@ -146,11 +139,19 @@ mvn package
 
 3. Проверьте директорию `~/.m2/repository/`, найдите ваш артефакт.
 
-[alt text]()
+[alt text](https://github.com/Kovrei/devops-netology/blob/main/CICD/03-cicd/img/3.3.JPG)
 
-4. В ответе пришлите исправленный файл `pom.xml`.
+<details><summary>4. В ответе пришлите исправленный файл `pom.xml`.</summary>
 
-[]()
+-> edit  
+[pom.xml](./mvn/pom.xml)  
+-> command  
+mvn package  
+-> new autocreate folder target. Build success
+</details>
+
+[pom.xml](./mvn/pom.xml) 
+
 ---
 
 ### Как оформить решение задания
