@@ -24,42 +24,41 @@
 
 <details><summary>1. Создайте новый проект, название произвольное.</summary>  
 
-manually
-->
+manually  
+->  
 name
 ->
-locally
-->
-token
+locally  
+->  
+token  
 </details>
 
 <details><summary>2. Скачайте пакет sonar-scanner, который вам предлагает скачать SonarQube.</summary>  
 
-other 
-->
-linux  
-->
-open adress offical documintation of the Scanner
-->
-wget -O sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-7.0.2.4839-linux-x64.zip?_gl=1*1bte3hq*_gcl_au*NzI0OTk2OTA4LjE3NDQ0Nzc3MjM.*_ga*MjA4MTE2OTk1MS4xNzQ0NDc3Njgz*_ga_9JZ0GZ5TC6*MTc0NDUxNjk0NS4yLjEuMTc0NDUxNjk4Mi41OS4wLjA.  
-->
-sudo unzip sonar-scanner.zip -d ~/opt 
+**other** 
+->  
+**linux**  
+->  
+**open adress offical documintation of the Scanner**  
+->   
+**wget -O sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-7.0.2.4839-linux-x64.zip?_gl=1*1bte3hq*_gcl_au*NzI0OTk2OTA4LjE3NDQ0Nzc3MjM.*_ga*MjA4MTE2OTk1MS4xNzQ0NDc3Njgz*_ga_9JZ0GZ5TC6*MTc0NDUxNjk0NS4yLjEuMTc0NDUxNjk4Mi41OS4wLjA.**  
+->  
+**sudo unzip sonar-scanner.zip -d ~/opt** 
 </details> 
 
 <details><summary>3. Сделайте так, чтобы binary был доступен через вызов в shell (или поменяйте переменную PATH, или любой другой, удобный вам способ).</summary>
+
  
- cd /opt/sonar-scanner-7.0.2.4839-linux-x64/bin  
+ **cd /opt/sonar-scanner-7.0.2.4839-linux-x64/bin**  
  ->  
- export PATH=$(pwd):$PATH  
+ **export PATH=$(pwd):$PATH**  
 </details> 
 
-<details><summary>4. Проверьте `sonar-scanner --version`.</summary> 
- sonar-scanner -v 
-</details>
+4. Проверьте `sonar-scanner --version`.
 
 <details><summary>5. Запустите анализатор против кода из директории [example](./example) с дополнительным ключом `-Dsonar.coverage.exclusions=fail.py`.</summary> 
  
- cd ...../example  
+ **cd ...../example**  
  -> copy past
 ```
 sonar-scanner \
@@ -95,17 +94,17 @@ sonar-scanner \
  *    classifier: distrib;
  *    type: tar.gz.
 
-browser nexus  
+**browser nexus**  
 ->  
-upload  
+**upload**  
 ->  
-maven-reales  
+**maven-reales**  
 -> 
-upload  
+**upload**  
 ->  
-browse  
+**browse**  
 ->  
-maven-public  
+**maven-public**  
 </details>
 
 2. В него же загрузите такой же артефакт, но с version: 8_102.
@@ -144,9 +143,9 @@ maven-public
 <details><summary>4. В ответе пришлите исправленный файл `pom.xml`.</summary>
 
 -> edit  
-[pom.xml](./mvn/pom.xml)  
+**[pom.xml](./mvn/pom.xml)**  
 -> command  
-mvn package  
+**mvn package**  
 -> new autocreate folder target. Build success
 </details>
 
