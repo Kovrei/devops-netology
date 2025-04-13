@@ -24,16 +24,18 @@
 
 <details><summary>1. Создайте новый проект, название произвольное.</summary>  
 
-manually  
+
+**manually**  
 ->  
-name
+**name**
 ->
-locally  
+**locally**  
 ->  
-token  
+**token**  
 </details>
 
 <details><summary>2. Скачайте пакет sonar-scanner, который вам предлагает скачать SonarQube.</summary>  
+
 
 **other** 
 ->  
@@ -58,7 +60,7 @@ token
 
 <details><summary>5. Запустите анализатор против кода из директории [example](./example) с дополнительным ключом `-Dsonar.coverage.exclusions=fail.py`.</summary> 
  
- **cd ...../example**  
+ **cd ../example**  
  -> copy past
 ```
 sonar-scanner \
