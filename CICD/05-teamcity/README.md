@@ -38,10 +38,7 @@
 ![alt text](https://github.com/Kovrei/devops-netology/blob/main/CICD/05-teamcity/img/5.5.2.JPG)  
 </details>
 
-<details><summary>6. В pom.xml необходимо поменять ссылки на репозиторий и nexus.</summary>
-
-![alt text](https://github.com/Kovrei/devops-netology/blob/main/CICD/05-teamcity/img/5.6.JPG)  
-</details>
+6. В pom.xml необходимо поменять ссылки на репозиторий и nexus.
 
 <details><summary>7. Запустите сборку по master, убедитесь, что всё прошло успешно и артефакт появился в nexus.</summary>
 
