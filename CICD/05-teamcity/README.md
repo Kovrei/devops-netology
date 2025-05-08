@@ -7,9 +7,9 @@
 3. Создайте ещё один инстанс (2CPU4RAM) на основе образа `jetbrains/teamcity-agent`. Пропишите к нему переменную окружения `SERVER_URL: "http://<teamcity_url>:8111"`.
 4. Авторизуйте агент.
 5. Сделайте fork [репозитория](https://github.com/aragastmatb/example-teamcity).
-6. Создайте VM (2CPU4RAM) и запустите [playbook](./infrastructure).
-[VM](https://github.com/Kovrei/devops-netology/tree/main/CICD/05-teamcity/src)
-[playbook](https://github.com/Kovrei/devops-netology/tree/main/CICD/05-teamcity/playbook)
+6. Создайте VM (2CPU4RAM) и запустите [playbook](./infrastructure).  
+[VM](https://github.com/Kovrei/devops-netology/tree/main/CICD/05-teamcity/src)  
+[playbook](https://github.com/Kovrei/devops-netology/tree/main/CICD/05-teamcity/playbook)  
 
 ## Основная часть
 
@@ -84,5 +84,5 @@
 
 18. Проверьте, что конфигурация в репозитории содержит все настройки конфигурации из teamcity.
 
-19. В ответе пришлите ссылку на репозиторий.
+19. В ответе пришлите ссылку на репозиторий.  
 **[Example-teamcity](https://github.com/Kovrei/example-teamcity)**
