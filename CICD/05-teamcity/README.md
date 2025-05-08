@@ -8,46 +8,81 @@
 4. Авторизуйте агент.
 5. Сделайте fork [репозитория](https://github.com/aragastmatb/example-teamcity).
 6. Создайте VM (2CPU4RAM) и запустите [playbook](./infrastructure).
+[VM](https://github.com/Kovrei/devops-netology/tree/main/CICD/05-teamcity/src)
+[playbook](https://github.com/Kovrei/devops-netology/tree/main/CICD/05-teamcity/playbook)
 
 ## Основная часть
 
 <details><summary>1. Создайте новый проект в teamcity на основе fork.</summary>
-![alt text]()
-
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/CICD/05-teamcity/img/5.1.JPG?raw=true)
 </details>
-2. Сделайте autodetect конфигурации.
+
+<details><summary>2. Сделайте autodetect конфигурации.</summary>
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/CICD/05-teamcity/img/5.2.JPG)
+</details>
 
 3. Сохраните необходимые шаги, запустите первую сборку master.
 
-4. Поменяйте условия сборки: если сборка по ветке `master`, то должен происходит `mvn clean deploy`, иначе `mvn clean test`.
+<details><summary>4. Поменяйте условия сборки: если сборка по ветке `master`, то должен происходит `mvn clean deploy`, иначе `mvn clean test`.</summary>
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/CICD/05-teamcity/img/5.4.1.JPG)
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/CICD/05-teamcity/img/5.4.2.JPG)
+</details>
 
-5. Для deploy будет необходимо загрузить [settings.xml](./teamcity/settings.xml) в набор конфигураций maven у teamcity, предварительно записав туда креды для подключения к nexus.
+<details><summary>5. Для deploy будет необходимо загрузить [settings.xml](./teamcity/settings.xml) в набор конфигураций maven у teamcity, предварительно записав туда креды для подключения к nexus.</summary>
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/CICD/05-teamcity/img/5.5.1.JPG)
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/CICD/05-teamcity/img/5.5.2.JPG)
+</details>
 
-6. В pom.xml необходимо поменять ссылки на репозиторий и nexus.
+<details><summary>6. В pom.xml необходимо поменять ссылки на репозиторий и nexus.</summary>
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/CICD/05-teamcity/img/5.6.JPG)
+</details>
 
-7. Запустите сборку по master, убедитесь, что всё прошло успешно и артефакт появился в nexus.
+<details><summary>7. Запустите сборку по master, убедитесь, что всё прошло успешно и артефакт появился в nexus.</summary>
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/CICD/05-teamcity/img/5.7.JPG)
+</details>
 
-8. Мигрируйте `build configuration` в репозиторий.
+<details><summary>8. Мигрируйте `build configuration` в репозиторий.</summary>
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/CICD/05-teamcity/img/5.8.JPG)
+</details>
 
-9. Создайте отдельную ветку `feature/add_reply` в репозитории.
+<details><summary>9. Создайте отдельную ветку `feature/add_reply` в репозитории.</summary>
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/CICD/05-teamcity/img/5.9.JPG)
+</details>
 
-10. Напишите новый метод для класса Welcomer: метод должен возвращать произвольную реплику, содержащую слово `hunter`.
+<details><summary>10. Напишите новый метод для класса Welcomer: метод должен возвращать произвольную реплику, содержащую слово `hunter`.</summary>
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/CICD/05-teamcity/img/5.10.JPG)
+</details>
 
-11. Дополните тест для нового метода на поиск слова `hunter` в новой реплике.
+<details><summary>11. Дополните тест для нового метода на поиск слова `hunter` в новой реплике.</summary>
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/CICD/05-teamcity/img/5.11.JPG)
+</details>
 
-12. Сделайте push всех изменений в новую ветку репозитория.
+<details><summary>12. Сделайте push всех изменений в новую ветку репозитория.</summary>
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/CICD/05-teamcity/img/5.12.JPG)
+</details>
 
-13. Убедитесь, что сборка самостоятельно запустилась, тесты прошли успешно.
+<details><summary>13. Убедитесь, что сборка самостоятельно запустилась, тесты прошли успешно.</summary>
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/CICD/05-teamcity/img/5.13.JPG)
+</details>
 
-14. Внесите изменения из произвольной ветки `feature/add_reply` в `master` через `Merge`.
+<details><summary>14. Внесите изменения из произвольной ветки `feature/add_reply` в `master` через `Merge`.</summary>
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/CICD/05-teamcity/img/5.14.JPG)
+</details>
 
-15. Убедитесь, что нет собранного артефакта в сборке по ветке `master`.
+<details><summary>15. Убедитесь, что нет собранного артефакта в сборке по ветке `master`.</summary>
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/CICD/05-teamcity/img/5.15.JPG)
+</details>
 
-16. Настройте конфигурацию так, чтобы она собирала `.jar` в артефакты сборки.
+<details><summary>16. Настройте конфигурацию так, чтобы она собирала `.jar` в артефакты сборки.</summary>
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/CICD/05-teamcity/img/5.16.JPG)
+</details>
 
-17. Проведите повторную сборку мастера, убедитесь, что сбора прошла успешно и артефакты собраны.
+<details><summary>17. Проведите повторную сборку мастера, убедитесь, что сбора прошла успешно и артефакты собраны.</summary>
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/CICD/05-teamcity/img/5.17.1.JPG)
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/CICD/05-teamcity/img/5.17.2.JPG)
+</details>
 
 18. Проверьте, что конфигурация в репозитории содержит все настройки конфигурации из teamcity.
 
 19. В ответе пришлите ссылку на репозиторий.
-
+**[Example-teamcity](https://github.com/Kovrei/example-teamcity)**
