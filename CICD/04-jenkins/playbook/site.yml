@@ -18,10 +18,32 @@
       package:
         name: "{{ java_packages }}"
         state: present
+    #- name: Get repo JDK
+    #  become: true
+    #  ansible.builtin.get_url:
+    #    url: "{{ java_url }}"
+    #    dest: "{{ dest }}"
+    #    validate_certs: false
+    #- name: Install JDK
+    #  become: true
+    #  yum:
+    #    name: "{{ java_rpm }}"
+    #    state: present
 
 - name: Get Jenkins master installed
   hosts: jenkins_masters
   tasks:
+    #- name: Delete
+    #  become: true
+    #  yum:
+    #    name: jenkins
+    #    state: removed
+    #- name: Get repo Jenkins
+    #  become: true
+    #  get_url:
+    #    url: "{{ jenkins_url }}"
+    #    dest: /home/aos/
+    #    validate_certs: false
     - name: Get repo Jenkins
       become: true
       get_url:
@@ -44,6 +66,7 @@
       yum:
         name:
           - jenkins
+          #- "{{ jenkins_rpm }}"
           - git
         state: present
       register: jenkins_installed
@@ -63,6 +86,7 @@
         state: restarted
         enabled: true
       when: jenkins_installed is changed
+
 - name: Prepare jenkins agent
   hosts: jenkins_agents
   become: true
@@ -91,10 +115,15 @@
       yum:
         name:
           - git
+          - python3-pip
           - python3
           - docker-ce
           - docker-ce-cli
           - containerd.io
+          #- python3-setuptools
+          #- python3-devel
+          #- openssl-devel
+          #- python3-libselinux
         state: present
     - name: Update pip
       become_user: root
@@ -102,6 +131,13 @@
         executable: pip3
         name: pip
         extra_args: --upgrade
+    #- name: Install molecule
+    #  become_user: root
+    #  pip:
+    #    name: 
+    #      - molecule
+    #      - ansible-core
+    #    state: present
     - name: Install Ansible
       become_user: root
       pip:

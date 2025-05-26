@@ -1,0 +1,9 @@
+---
+- name: Get Jenkins master installed
+  hosts: jenkins_masters
+  tasks:
+    - name: Delete
+      become: true
+      yum:
+        name: jenkins
+        state: removed
