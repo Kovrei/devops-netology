@@ -1,3 +1,3 @@
 locals {
-  ssh-keys = "vm1:${file("~/.ssh/vm1.pub")}"
+  ssh-keys = "aos:${file("~/.ssh/vm1.pub")}"
 }

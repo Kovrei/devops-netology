@@ -19,7 +19,7 @@ variable "folder_id" {
 
 variable "centos7" {
   type        = string
-  default     = "centos-7-oslogin"
+  default     = "centos-stream-9-oslogin"
   description = "install centos7"
 }
 
