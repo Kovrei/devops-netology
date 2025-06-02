@@ -21,20 +21,25 @@
 
 ### Задание 1
 
-<details><summary>1. Используя директорию [help](./help) внутри этого домашнего задания, запустите связку prometheus-grafana.<details><summary>
-![alt text]()
+<details><summary>1. Используя директорию [help](./help) внутри этого домашнего задания, запустите связку prometheus-grafana.<summary>
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/monitoring/03-grafana/help/img/3.1.1.JPG?raw=true)
+
 </details>
 
-<details><summary>2. Зайдите в веб-интерфейс grafana, используя авторизационные данные, указанные в манифесте docker-compose.<details><summary>
-![alt text]()
-</details>
-<details><summary>3. Подключите поднятый вами prometheus, как источник данных.<details><summary>
-![alt text]()
+<details><summary>2. Зайдите в веб-интерфейс grafana, используя авторизационные данные, указанные в манифесте docker-compose.<summary>
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/monitoring/03-grafana/help/img/3.1.2.JPG?raw=true)
+
 </details>
 
-<details><summary>4. Решение домашнего задания — скриншот веб-интерфейса grafana со списком подключенных Datasource.<details><summary>
-![alt text]()
+<details><summary>3. Подключите поднятый вами prometheus, как источник данных.<summary>
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/monitoring/03-grafana/help/img/3.1.3.JPG?raw=true)
+
 </details>
+
+4. Решение домашнего задания — скриншот веб-интерфейса grafana со списком подключенных Datasource.
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/monitoring/03-grafana/help/img/3.1.4.JPG?raw=true)
+
+
 
 ## Задание 2
 
@@ -46,34 +51,39 @@
 
 Создайте Dashboard и в ней создайте Panels:
 
-<details><summary>- утилизация CPU для nodeexporter (в процентах, 100-idle);<summary>
+- утилизация CPU для nodeexporter (в процентах, 100-idle);
+`100 - (avg by (instance) (rate(node_cpu_seconds_total{job="nodeexporter",mode="idle"}[1m])) * 100)`
 
-</details>
+- CPULA 1/5/15;
+`node_load1{job="nodeexporter"}
+node_load5{job="nodeexporter"}
+node_load15{job="nodeexporter"}`
 
-<details><summary>- CPULA 1/5/15;<summary>
-</details>
-<details><summary>- количество свободной оперативной памяти;<summary>
-</details>
-<details><summary>- количество места на файловой системе.<summary>
-</details>
+- количество свободной оперативной памяти;
+`node_memory_MemFree_bytes{job='nodeexporter'}`
+
+- количество места на файловой системе.
+`node_filesystem_size_bytes{device="/dev/sda3", fstype="ext4", instance="nodeexporter:9100", job="nodeexporter", mountpoint="/"}`
 
 Для решения этого задания приведите promql-запросы для выдачи этих метрик, а также скриншот получившейся Dashboard.
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/monitoring/03-grafana/help/img/3.2.JPG?raw=true)
 
 ## Задание 3
 
 <details><summary>1. Создайте для каждой Dashboard подходящее правило alert — можно обратиться к первой лекции в блоке «Мониторинг».<summary>
-![alt text]()
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/monitoring/03-grafana/help/img/3.3.2.JPG?raw=true)
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/monitoring/03-grafana/help/img/3.3.3.JPG?raw=true)
 </details>
 
 <details><summary>2. В качестве решения задания приведите скриншот вашей итоговой Dashboard.<summary>
-![alt text]()
-![alt text]()
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/monitoring/03-grafana/help/img/3.3.1.JPG?raw=true)
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/monitoring/03-grafana/help/img/3.3.4.JPG?raw=true)
 </details>
 ## Задание 4
 
 1. Сохраните ваш Dashboard.Для этого перейдите в настройки Dashboard, выберите в боковом меню «JSON MODEL». Далее скопируйте отображаемое json-содержимое в отдельный файл и сохраните его.
 2. В качестве решения задания приведите листинг этого файла.
-[json model Dashboard]()
+[json model Dashboard](https://github.com/Kovrei/devops-netology/blob/main/monitoring/03-grafana/help/prometheus/dashboard.json)
 ---
 
 ### Как оформить решение задания
