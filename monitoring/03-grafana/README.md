@@ -23,17 +23,14 @@
 
 <details><summary>1. Используя директорию [help](./help) внутри этого домашнего задания, запустите связку prometheus-grafana.<summary>
 ![alt text](https://github.com/Kovrei/devops-netology/blob/main/monitoring/03-grafana/help/img/3.1.1.JPG?raw=true)
-
 </details>
 
 <details><summary>2. Зайдите в веб-интерфейс grafana, используя авторизационные данные, указанные в манифесте docker-compose.<summary>
 ![alt text](https://github.com/Kovrei/devops-netology/blob/main/monitoring/03-grafana/help/img/3.1.2.JPG?raw=true)
-
 </details>
 
 <details><summary>3. Подключите поднятый вами prometheus, как источник данных.<summary>
 ![alt text](https://github.com/Kovrei/devops-netology/blob/main/monitoring/03-grafana/help/img/3.1.3.JPG?raw=true)
-
 </details>
 
 4. Решение домашнего задания — скриншот веб-интерфейса grafana со списком подключенных Datasource.
@@ -73,12 +70,15 @@ node_load15{job="nodeexporter"}`
 <details><summary>1. Создайте для каждой Dashboard подходящее правило alert — можно обратиться к первой лекции в блоке «Мониторинг».<summary>
 ![alt text](https://github.com/Kovrei/devops-netology/blob/main/monitoring/03-grafana/help/img/3.3.2.JPG?raw=true)
 ![alt text](https://github.com/Kovrei/devops-netology/blob/main/monitoring/03-grafana/help/img/3.3.3.JPG?raw=true)
+
 </details>
 
 <details><summary>2. В качестве решения задания приведите скриншот вашей итоговой Dashboard.<summary>
 ![alt text](https://github.com/Kovrei/devops-netology/blob/main/monitoring/03-grafana/help/img/3.3.1.JPG?raw=true)
 ![alt text](https://github.com/Kovrei/devops-netology/blob/main/monitoring/03-grafana/help/img/3.3.4.JPG?raw=true)
+
 </details>
+
 ## Задание 4
 
 1. Сохраните ваш Dashboard.Для этого перейдите в настройки Dashboard, выберите в боковом меню «JSON MODEL». Далее скопируйте отображаемое json-содержимое в отдельный файл и сохраните его.
