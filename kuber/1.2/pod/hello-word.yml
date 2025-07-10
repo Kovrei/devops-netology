@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-word
+  labels:
+    app: mission1
+spec:
+  containers:
+  - name: hello-word
+    image: gcr.io/kubernetes-e2e-test-images/echoserver:2.2
+    #ports:
+    #- containerPort: 80
