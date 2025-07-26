@@ -1,62 +1,57 @@
-# Домашнее задание к занятию «Сетевое взаимодействие в K8S. Часть 2». Osipenkov AU
+# Домашнее задание к занятию «Хранение в K8s. Часть 1». Osipenkov AU
 
 ------
 
-### Задание 1. Создать Deployment приложений backend и frontend
+### Задание 1 
 
-1. Создать Deployment приложения _frontend_ из образа nginx с количеством реплик 3 шт.
+**Что нужно сделать**
 
-[fronted](https://github.com/Kovrei/devops-netology/blob/main/kuber/1.5/mission1/d-nginx.yml)  
+Создать Deployment приложения, состоящего из двух контейнеров и обменивающихся данными.
 
-![alt text](https://github.com/Kovrei/devops-netology/blob/main/kuber/1.5/img/1.1.JPG)
+1. Создать Deployment приложения, состоящего из контейнеров busybox и multitool.
 
-2. Создать Deployment приложения _backend_ из образа multitool. 
+[Deployment](https://github.com/Kovrei/devops-netology/blob/main/kuber/2.1/mission1/deploy.yml)  
 
-[backend](https://github.com/Kovrei/devops-netology/blob/main/kuber/1.5/mission1/d-multitool.yml)  
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/kuber/2.1/img/1.1.JPG)
 
-![alt text](https://github.com/Kovrei/devops-netology/blob/main/kuber/1.5/img/1.2.JPG)
+2. Сделать так, чтобы busybox писал каждые пять секунд в некий файл в общей директории.
+3. Обеспечить возможность чтения файла контейнером multitool.
+4. Продемонстрировать, что multitool может читать файл, который периодоически обновляется.
 
-3. Добавить Service, которые обеспечат доступ к обоим приложениям внутри кластера. 
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/kuber/2.1/img/1.4.JPG?raw=true)
 
-[svc-fronted](https://github.com/Kovrei/devops-netology/blob/main/kuber/1.5/mission1/svc-nginx.yml)  
+5. Предоставить манифесты Deployment в решении, а также скриншоты или вывод команды из п. 4.
 
-[svc-backend](https://github.com/Kovrei/devops-netology/blob/main/kuber/1.5/mission1/svc-multitool.yml)
-
-![alt text](https://github.com/Kovrei/devops-netology/blob/main/kuber/1.5/img/1.3.JPG)
-
-4. Продемонстрировать, что приложения видят друг друга с помощью Service.
-
-![alt text](https://github.com/Kovrei/devops-netology/blob/main/kuber/1.5/img/1.4.1.JPG)
-
-![alt text](https://github.com/Kovrei/devops-netology/blob/main/kuber/1.5/img/1.4.2.JPG)
-
-5. Предоставить манифесты Deployment и Service в решении, а также скриншоты или вывод команды п.4.
 ------
 
-### Задание 2. Создать Ingress и обеспечить доступ к приложениям снаружи кластера
+### Задание 2
 
-1. Включить Ingress-controller в MicroK8S.
+**Что нужно сделать**
 
-![alt text](https://github.com/Kovrei/devops-netology/blob/main/kuber/1.5/img/2.1.1.JPG)
+Создать DaemonSet приложения, которое может прочитать логи ноды.
 
-![alt text](https://github.com/Kovrei/devops-netology/blob/main/kuber/1.5/img/2.1.2.JPG)
+1. Создать DaemonSet приложения, состоящего из multitool.
 
-![alt text](https://github.com/Kovrei/devops-netology/blob/main/kuber/1.5/img/2.1.3.JPG)
+[DaemonSet](https://github.com/Kovrei/devops-netology/blob/main/kuber/2.1/mission2/demonset.yml)  
 
-2. Создать Ingress, обеспечивающий доступ снаружи по IP-адресу кластера MicroK8S так, чтобы при запросе только по адресу открывался _frontend_ а при добавлении /api - _backend_.
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/kuber/2.1/img/2.1.JPG)
 
-[Ingress](https://github.com/Kovrei/devops-netology/blob/main/kuber/1.5/mission2/ingress.yml)
+2. Обеспечить возможность чтения файла `/var/log/syslog` кластера MicroK8S.
 
-![alt text](https://github.com/Kovrei/devops-netology/blob/main/kuber/1.5/img/2.2.1.JPG)
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/kuber/2.1/img/2.2.JPG)
 
-![alt text](https://github.com/Kovrei/devops-netology/blob/main/kuber/1.5/img/2.2.2.2.JPG)
+3. Продемонстрировать возможность чтения файла изнутри пода.
 
-![alt text](https://github.com/Kovrei/devops-netology/blob/main/kuber/1.5/img/2.2.3.JPG)
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/kuber/2.1/img/2.3.JPG)
 
-3. Продемонстрировать доступ с помощью браузера или `curl` с локального компьютера.
+4. Предоставить манифесты Deployment, а также скриншоты или вывод команды из п. 2.
 
-![alt text](https://github.com/Kovrei/devops-netology/blob/main/kuber/1.5/img/2.3.JPG)
+------
 
-4. Предоставить манифесты и скриншоты или вывод команды п.2.
+### Правила приёма работы
 
+1. Домашняя работа оформляется в своём Git-репозитории в файле README.md. Выполненное задание пришлите ссылкой на .md-файл в вашем репозитории.
+2. Файл README.md должен содержать скриншоты вывода необходимых команд `kubectl`, а также скриншоты результатов.
+3. Репозиторий должен содержать тексты манифестов или ссылки на них в файле README.md.
 
+------
