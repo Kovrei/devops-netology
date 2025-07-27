@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-m2
+spec:
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: "nfs"
+  #selector:
+  #  matchLabels:
+  #    release: "stable"
+  #  matchExpressions:
+  #    - {key: environment, operator: In, values: [dev]}

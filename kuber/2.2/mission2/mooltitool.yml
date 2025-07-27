@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mooltitool
+  labels:
+    app: mission2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mission2
+  template:
+    metadata:
+      labels:
+        app: mission2
+    spec:
+      containers:
+      - name: network-multitool
+        image: wbitt/network-multitool
+        volumeMounts: 
+        - mountPath: /mnt/vol
+          name: vol     
+      volumes:
+      - name: vol
+        persistentVolumeClaim:
+          claimName: pvc-m2
