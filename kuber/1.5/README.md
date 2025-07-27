@@ -49,7 +49,7 @@
 
 ![alt text](https://github.com/Kovrei/devops-netology/blob/main/kuber/1.5/img/2.2.1.JPG)
 
-![alt text](https://github.com/Kovrei/devops-netology/blob/main/kuber/1.5/img/2.2.2.2.JPG)
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/kuber/1.5/img/2.2.2.JPG)
 
 ![alt text](https://github.com/Kovrei/devops-netology/blob/main/kuber/1.5/img/2.2.3.JPG)
 
