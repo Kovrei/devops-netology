@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: mission1
+  name: cm-mt
+data:
+  HTTP_PORT: "8080"

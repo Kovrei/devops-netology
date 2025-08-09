@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy
+  namespace: mission1
+  labels:
+    app: nginx-mt
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-mt
+  template:
+    metadata:
+      labels:
+        app: nginx-mt
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        volumeMounts:
+        - name: index
+          mountPath: /usr/share/nginx/html
+      - name: multitool
+        image: wbitt/network-multitool
+        env:
+          - name: port 
+            valueFrom:
+              configMapKeyRef:
+                name: cm-mt   
+                key: HTTP_PORT 
+        resources:
+          requests:
+            cpu: "1m"
+            memory: "20Mi"
+          limits:
+            cpu: "10m"
+            memory: "20Mi"
+      volumes:
+      - name: index
+        configMap:
+          name: cm-nginx
