@@ -6,29 +6,31 @@
 
 1. Создать Deployment приложения, состоящего из контейнеров nginx и multitool.
 
-[Deployment]()
+[Deployment](https://github.com/Kovrei/devops-netology/blob/main/kuber/2.3/mission1/deploy.yml)
 
-![alt text]()
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/kuber/2.3/img/1.1.JPG?raw=true)
 
 2. Решить возникшую проблему с помощью ConfigMap.
 
-[ConfigMap]()
+[ConfigMap](https://github.com/Kovrei/devops-netology/blob/main/kuber/2.3/mission1/cm-mt.yml)
 
-![alt text]()
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/kuber/2.3/img/1.2.JPG?raw=true)
 
 3. Продемонстрировать, что pod стартовал и оба конейнера работают.
 
-![alt text]()
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/kuber/2.3/img/1.3.JPG?raw=true)
 
 4. Сделать простую веб-страницу и подключить её к Nginx с помощью ConfigMap. Подключить Service и показать вывод curl или в браузере.
 
-[Service]()
+[ConfigMap](https://github.com/Kovrei/devops-netology/blob/main/kuber/2.3/mission1/cm-nginx.yml)
 
-![alt text]()
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/kuber/2.3/img/1.4.1.JPG?raw=true)
 
-![alt text]()
+[Service](https://github.com/Kovrei/devops-netology/blob/main/kuber/2.3/mission1/svc-nginx.yml)
 
-![alt text]()
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/kuber/2.3/img/1.4.2.JPG?raw=true)
+
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/kuber/2.3/img/1.4.3.JPG?raw=true)
 
 5. Предоставить манифесты, а также скриншоты или вывод необходимых команд.
 
@@ -38,19 +40,17 @@
 
 1. Создать Deployment приложения, состоящего из Nginx.
 
-[Deployment]()
+[Deployment](https://github.com/Kovrei/devops-netology/blob/main/kuber/2.3/mission2/deploy.yml)
 
-![alt text]()
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/kuber/2.3/img/2.1.JPG?raw=true)
 
 2. Создать собственную веб-страницу и подключить её как ConfigMap к приложению.
 
-[ConfigMap]()
+[ConfigMap](https://github.com/Kovrei/devops-netology/blob/main/kuber/2.3/mission2/cm-nginx.yml)
 
-![alt text]()
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/kuber/2.3/img/2.2.1JPG.JPG?raw=true)
 
-![alt text]()
-
-![alt text]()
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/kuber/2.3/img/2.2.2.JPG?raw=true)
 
 3. Выпустить самоподписной сертификат SSL. Создать Secret для использования сертификата.
 
@@ -58,25 +58,27 @@
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout tls.key -out tls.crt -subj "/CN=aos-test.ru/O=aos-test.ru"
 ```
 
-![alt text]()
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/kuber/2.3/img/2.3.1.JPG?raw=true)
 
-![alt text]()
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/kuber/2.3/img/2.3.2.JPG?raw=true)
 
-[Secret]()
+[Secret](https://github.com/Kovrei/devops-netology/blob/main/kuber/2.3/mission2/sec-nginx.yml)
 
-![alt text]()
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/kuber/2.3/img/2.3.3.JPG?raw=true)
 
 4. Создать Ingress и необходимый Service, подключить к нему SSL в вид. Продемонстировать доступ к приложению по HTTPS. 
 
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/kuber/2.3/img/2.4.1.JPG?raw=true)
+
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/kuber/2.3/img/2.4.2.JPG?raw=true)
+
 [Ingress]()
 
-![alt text]()
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/kuber/2.3/img/2.4.3.JPG?raw=true)
 
-![alt text]()
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/kuber/2.3/img/2.4.4.JPG?raw=true)
 
-![alt text]()
-
-![alt text]()
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/kuber/2.3/img/2.4.5.JPG?raw=true)
 
 5. Предоставить манифесты, а также скриншоты или вывод необходимых команд.
 
