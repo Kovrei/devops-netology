@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.multitool.name }}-backend
+  labels:
+    app: {{ .Values.multitool.name }}
+spec: 
+  selector:
+    matchLabels:
+      app: {{ .Values.multitool.name }}
+  replicas: {{ .Values.multitool.replicaCount }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.multitool.name }}
+    spec:
+      containers:
+      - name: {{ .Values.multitool.name }}
+        image: "{{ .Values.multitool.image.repository }}:{{ .Values.multitool.image.tag }}"
+        env:
+        - name: HTTP_PORT
+          value: "1180"  
