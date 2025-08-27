@@ -24,11 +24,12 @@
 
 3. В переменных чарта измените образ приложения для изменения версии.
 
-[values](https://github.com/Kovrei/devops-netology/blob/main/kuber/helm/chart/values.yaml)
+[values1 - nginx:1:26:0](https://github.com/Kovrei/devops-netology/blob/main/kuber/helm/chart/values1.yaml)
 
-[values1](https://github.com/Kovrei/devops-netology/blob/main/kuber/helm/chart/values1.yaml)
+[values1 - nginx:1:27:0](https://github.com/Kovrei/devops-netology/blob/main/kuber/helm/chart/values2.yaml)
 
-[values2]
+[values1 - nginx:1:28:0](https://github.com/Kovrei/devops-netology/blob/main/kuber/helm/chart/values3.yaml)
+
 ------
 ### Задание 2. Запустить две версии в разных неймспейсах
 
@@ -43,6 +44,8 @@
 ![alt text](https://github.com/Kovrei/devops-netology/blob/main/kuber/helm/img/2.2.1.JPG)
 
 ![alt text](https://github.com/Kovrei/devops-netology/blob/main/kuber/helm/img/2.2.2.JPG)
+
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/kuber/helm/img/2.2.3.JPG)
 
 3. Продемонстрируйте результат.
 
