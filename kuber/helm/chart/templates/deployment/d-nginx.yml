@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.nginx.name }}-frontend
+  name: {{ .Release.Name }}-{{ .Values.nginx.name }}
   labels:
     app: {{ .Values.nginx.name }}
 spec:

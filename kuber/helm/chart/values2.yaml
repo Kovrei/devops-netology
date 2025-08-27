@@ -3,12 +3,12 @@ multitool:
   name: multitool
   image:
     repository: wbitt/network-multitool
-    tag: latest
+    tag: 0.1.0
 
 nginx:
   replicaCount: 3
   name: nginx
   image:
     repository: nginx
-    tag: 1.26.0
+    tag: 1.27.0
 

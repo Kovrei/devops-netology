@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Values.nginx.name }}-frontend
+  name: {{ .Release.Name }}-{{ .Values.nginx.name }}
 spec:
   selector:
     app: {{ .Values.nginx.name }}

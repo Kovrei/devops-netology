@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.multitool.name }}-backend
+  name: {{ .Release.Name }}-{{ .Values.multitool.name }}
   labels:
     app: {{ .Values.multitool.name }}
 spec: 

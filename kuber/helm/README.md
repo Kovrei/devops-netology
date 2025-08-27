@@ -28,6 +28,7 @@
 
 [values1](https://github.com/Kovrei/devops-netology/blob/main/kuber/helm/chart/values1.yaml)
 
+[values2]
 ------
 ### Задание 2. Запустить две версии в разных неймспейсах
 
