@@ -6,64 +6,64 @@
 
 1. Создать пустую VPC. Выбрать зону.
 
-![alt text]()
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/clopro/15.1/img/1.2.JPG?raw=true)
 
-![alt text]()
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/clopro/15.1/img/1.1.JPG?raw=true)
 
-[]()
+[network.tf](https://github.com/Kovrei/devops-netology/blob/main/clopro/15.1/src/network.tf)
 
 2. Публичная подсеть.
 * Создать в VPC subnet с названием public, сетью 192.168.10.0/24.
 
-![alt text]()
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/clopro/15.1/img/2.2.JPG?raw=true)
 
-![alt text]()
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/clopro/15.1/img/2.1.JPG?raw=true)
 
-[]()
+[network.tf](https://github.com/Kovrei/devops-netology/blob/main/clopro/15.1/src/network.tf)
 
 * Создать в этой подсети NAT-инстанс, присвоив ему адрес 192.168.10.254. В качестве image_id использовать fd80mrhj8fl2oe87o4e1.
 
-![alt text]()
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/clopro/15.1/img/2.4.JPG?raw=true)
 
-![alt text]()
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/clopro/15.1/img/2.3.JPG?raw=true)
 
-[]()
+[nat-instance.tf](https://github.com/Kovrei/devops-netology/blob/main/clopro/15.1/src/vm_nat_instance.tf)
 
 * Создать в этой публичной подсети виртуалку с публичным IP, подключиться к ней и убедиться, что есть доступ к интернету.
 
-![alt text]()
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/clopro/15.1/img/2.5.JPG?raw=true)
 
-![alt text]()
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/clopro/15.1/img/2.6.JPG?raw=true)
 
-![alt text]()
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/clopro/15.1/img/2.7.JPG?raw=true)
 
-[]()
+[vm_public.tf](https://github.com/Kovrei/devops-netology/blob/main/clopro/15.1/src/vm_public.tf)
 
 3. Приватная подсеть.
 * Создать в VPC subnet с названием private, сетью 192.168.20.0/24.
 
-![alt text]()
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/clopro/15.1/img/3.1.JPG?raw=true)
 
-![alt text]()
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/clopro/15.1/img/3.2.JPG?raw=true)
 
-[]()
+[network.tf](https://github.com/Kovrei/devops-netology/blob/main/clopro/15.1/src/network.tf)
 
 * Создать route table. Добавить статический маршрут, направляющий весь исходящий трафик private сети в NAT-инстанс.
 
-![alt text]()
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/clopro/15.1/img/3.3.JPG?raw=true)
 
-[]()
+[network.tf](https://github.com/Kovrei/devops-netology/blob/main/clopro/15.1/src/network.tf)
 
 * Создать в этой приватной подсети виртуалку с внутренним IP, подключиться к ней через виртуалку, созданную ранее, и убедиться, что есть доступ к интернету.
 Resource Terraform для Yandex Cloud:
 
-![alt text]()
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/clopro/15.1/img/3.4.JPG?raw=true)
 
-![alt text]()
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/clopro/15.1/img/3.5.JPG?raw=true)
 
-![alt text]()
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/clopro/15.1/img/3.6.JPG?raw=true)
 
-[]()
+[vm_private.tf](https://github.com/Kovrei/devops-netology/blob/main/clopro/15.1/src/vm_private.tf)
 
 ----
 
