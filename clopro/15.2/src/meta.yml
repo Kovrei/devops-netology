@@ -1,0 +1,40 @@
+#cloud-config
+datasource:
+  Ec2:
+    strict_id: false
+ssh_pwauth: no
+users:
+- name: aos
+  groups: sudo
+  sudo: 'ALL=(ALL) NOPASSWD:ALL'
+  shell: /bin/bash
+  ssh_authorized_keys:
+  - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMv79Sc4ciJDzjVuo/DOiNibrUOTXO2tO28k8AHXzk+z aos@vm1
+write_files:
+  - content: |
+      <html lang="ru">
+        <head>
+          <meta charset="UTF-8">
+          <title>Картинка</title>
+        </head>
+        <body>
+          <h2>IP адрес сервера обработчика:</h2>
+          <p>#ipaddress</p>
+          <h2>Картинка из бакета:</h2>
+          <p><img src='https://storage.yandexcloud.net/auosipenkov/1.1.JPG'/></p>
+        </body>
+      </html>
+    path: /var/www/html/template.tl
+package_update: true
+package_upgrade: false
+packages: 
+  - nano
+  - curl
+runcmd:
+  - sed "s/#ipaddress/$(curl ifconfig.me)/g" /var/www/html/template.tl>/var/www/html/index.html
+  - rm /var/www/html/template.tl
+  - systemctl reload apache2
+
+          #https://${yandex_storage_bucket.basket.bucket_domain_name}/${yandex_storage_object.object.key}
+          #https://storage.yandexcloud.net/${yandex_storage_bucket.basket.bucket}/${yandex_storage_object.object.key}
+          #https://storage.yandexcloud.net/auosipenkov/1.1.JPG
