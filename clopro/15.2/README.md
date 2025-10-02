@@ -10,40 +10,51 @@
 * Положить в бакет файл с картинкой.
 * Сделать файл доступным из интернета.
 
-![alt text]()
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/clopro/15.2/img/1.1.JPG)
 
-[]()
+[backet.tf](https://github.com/Kovrei/devops-netology/blob/main/clopro/15.2/src/backet.tf)
 
 2. Создать группу ВМ в public подсети фиксированного размера с шаблоном LAMP и веб-страницей, содержащей ссылку на картинку из бакета:
 
 * Создать Instance Group с тремя ВМ и шаблоном LAMP. Для LAMP рекомендуется использовать image_id = fd827b91d99psvq5fjit.
 
-![alt text]()
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/clopro/15.2/img/2.1.JPG)
 
-![alt text]()
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/clopro/15.2/img/2.2.JPG?raw=true)
 
 * Для создания стартовой веб-страницы рекомендуется использовать раздел user_data в meta_data.
 
-[]()
+[meta.yml](https://github.com/Kovrei/devops-netology/blob/main/clopro/15.2/src/meta.yml)
 
 * Разместить в стартовой веб-странице шаблонной ВМ ссылку на картинку из бакета.
 
-![alt text]()
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/clopro/15.2/img/2.3.JPG)
 
 * Настроить проверку состояния ВМ.
 
-![alt text]()
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/clopro/15.2/img/2.7.JPG)
+
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/clopro/15.2/img/2.4.JPG?raw=true)
+
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/clopro/15.2/img/2.5.JPG?raw=true)
+
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/clopro/15.2/img/2.6.JPG?raw=true)
+
+[main.tf](https://github.com/Kovrei/devops-netology/blob/main/clopro/15.2/src/main.tf)
 
 3. Подключить группу к сетевому балансировщику:
 
 * Создать сетевой балансировщик.
 
-![alt text]()
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/clopro/15.2/img/3.1.JPG?raw=true)
 
 * Проверить работоспособность, удалив одну или несколько ВМ.
 
-![alt text]()
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/clopro/15.2/img/3.3.JPG?raw=true)
 
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/clopro/15.2/img/3.6.JPG?raw=true)
+
+[lb.tf](https://github.com/Kovrei/devops-netology/blob/main/clopro/15.2/src/lb.tf)
 4. (дополнительно)* Создать Application Load Balancer с использованием Instance group и проверкой состояния.
 
 ## Задание 2*. AWS (задание со звёздочкой)
