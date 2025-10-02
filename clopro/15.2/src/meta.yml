@@ -22,6 +22,8 @@ write_files:
           <p>#ipaddress</p>
           <h2>Картинка из бакета:</h2>
           <p><img src='https://storage.yandexcloud.net/auosipenkov/1.1.JPG'/></p>
+          <p><img src='https://${yandex_storage_bucket.basket.bucket_domain_name}/${yandex_storage_object.object.key}'/></p>
+          <p><img src='https://storage.yandexcloud.net/${yandex_storage_bucket.basket.bucket}/${yandex_storage_object.object.key}'/></p>
         </body>
       </html>
     path: /var/www/html/template.tl

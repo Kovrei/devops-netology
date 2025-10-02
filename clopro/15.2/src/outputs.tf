@@ -1,6 +1,6 @@
 output "instance_name" {
   description = "IDs of instances"
-  value       = yandex_compute_instance_group.lamp.*.name
+  value       = yandex_compute_instance_group.lamp-vm.*.name
 }
 
 output "bucket_domain_name" {

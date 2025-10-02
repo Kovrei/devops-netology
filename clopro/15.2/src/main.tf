@@ -1,4 +1,4 @@
-resource "yandex_compute_instance_group" "lamp" {
+resource "yandex_compute_instance_group" "lamp-vm" {
 
   depends_on = [
     yandex_iam_service_account.ig-sa,
