@@ -28,8 +28,11 @@
 
 ### 
 
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/devops-diplom-yandexcloud/img/1.JPG)
 
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/devops-diplom-yandexcloud/img/1.1.JPG)
 
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/devops-diplom-yandexcloud/img/1.2.JPG)
 
 ---
 ## Создание Kubernetes кластера
@@ -52,6 +55,11 @@
 2. В файле `~/.kube/config` находятся данные для доступа к кластеру.
 3. Команда `kubectl get pods --all-namespaces` отрабатывает без ошибок.
 
+
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/devops-diplom-yandexcloud/img/2.1.JPG)
+
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/devops-diplom-yandexcloud/img/2.2.JPG)
+
 ---
 ## Создание тестового приложения
 
@@ -69,6 +77,12 @@
 
 1. Git репозиторий с тестовым приложением и Dockerfile.
 2. Регистри с собранным docker image. В качестве регистри может быть DockerHub или [Yandex Container Registry](https://cloud.yandex.ru/services/container-registry), созданный также с помощью terraform.
+
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/devops-diplom-yandexcloud/img/3.1.JPG)
+
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/devops-diplom-yandexcloud/img/3.2.JPG)
+
+![alt text](https://github.com/Kovrei/devops-netology/blob/main/devops-diplom-yandexcloud/img/3.3.JPG)
 
 ---
 ## Подготовка cистемы мониторинга и деплой приложения
